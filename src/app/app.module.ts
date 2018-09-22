@@ -3,14 +3,38 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { FormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { MessagesComponent } from './messages/messages.component';
+import { PaysSearchComponent } from './pays-search/pays-search.component';
+import { AirportComponent } from './airport/airport.component';
+import { PisteComponent } from './piste/piste.component';
+import { TopAirportsComponent } from './top-airports/top-airports.component';
+import { SurfacesComponent } from './surfaces/surfaces.component';
+import { PaysSearchSurfaceComponent } from './pays-search-surface/pays-search-surface.component';
+
+import { CacheService } from './cache.service';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessagesComponent,
+    PaysSearchSurfaceComponent,
+    PaysSearchComponent,
+    AirportComponent,
+    PisteComponent,
+    TopAirportsComponent,
+    SurfacesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CacheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

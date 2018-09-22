@@ -1,0 +1,7 @@
+<h3>List of tracks for Airport : {{(airportref$ | async).name}} ({{id}})</h3>
+<ul class="heroes">
+  <li *ngFor="let piste of pistes">
+      <span class="badge">{{piste.id}}</span> {{piste.le_ident}} ({{piste.surface}})
+  </li>
+</ul>
+<button (click)="goBack()">go back</button><button (click)="goTop()">Top</button>

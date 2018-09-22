@@ -1,0 +1,17 @@
+<h2>List of surfaces for Country : {{(paysref$ | async).name}} ({{code}})</h2>
+
+<div class="progress-container">
+    <div class="progress" id="progress">
+    
+    </div>
+  </div>
+
+<ul class="heroes">
+  <div *ngIf="surfaces"><li *ngFor="let surface of surfaces; let i = index">
+      <a>
+        <span class="badge">{{surface.count}}</span> <span>{{surface.surface}}</span>
+        </a>
+  </li>
+</div>
+</ul>
+<button (click)="goBack()">go back</button><button (click)="goTop()">Top</button>

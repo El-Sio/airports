@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Country Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let pays of countries$ | async" >
+      <a routerLink="/airports/{{pays.code}}">
+        {{pays.name}}
+      </a>
+    </li>
+  </ul>
+</div>

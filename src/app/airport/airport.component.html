@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h3>Airport Search for {{(paysref$ | async).name }} ({{code}})</h3>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let airport of airports$ | async" >
+      <a routerLink="/piste/{{airport.id}}">
+        {{airport.name}} ({{airport.type}})
+      </a>
+    </li>
+  </ul>
+
+  <button (click)="goBack()">go back</button><button (click)="goTop()">Top</button>
+
+</div>

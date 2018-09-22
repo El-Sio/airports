@@ -1,0 +1,28 @@
+<h2>Top 10 Countries with Most/Least Airports</h2>
+
+<div class="progress-container">
+    <div class="progress" id="progress">
+    </div>
+  </div>
+
+<h4>Top 10 Countries with most airports</h4>
+
+<ul class="heroes">
+  <li *ngFor="let paysmax of topPaysAirportsMax; let i = index">
+    <a routerLink="/airports/{{paysmax.code}}">
+    <span class="badge">{{i+1}}</span> {{paysmax.name}} ({{paysmax.count}})
+    </a>
+  </li>
+</ul>
+
+<h4>Top 10 Countries with least airports</h4>
+
+<ul class="heroes">
+  <li *ngFor="let paysmin of topPaysAirportsMin; let j = index">
+      <a routerLink="/airports/{{paysmin.code}}">
+      <span class="badge">{{j+1}}</span> {{paysmin.name}} ({{paysmin.count}})
+    </a>
+  </li>
+</ul>
+
+<button (click)="goBack()">go back</button><button (click)="goTop()">Top</button>
