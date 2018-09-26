@@ -1,27 +1,24 @@
-# AngularAirport
+# About the Airport Exercice
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+This project is a simple app in response to a coding exercice that my Lead Tech asks potential recruits to complete.
 
-## Development server
+The exercice is as follows :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Given 3 .csv Files (countries, airports, runway), create an app with the following features :
 
-## Code scaffolding
+1/ as a user, I want to see a list all runways for any airport in any country
+2/ as a user, I want to see a list of the 10 countries with the greatest number of airports, and the 10 countries with the least number of airports
+3/ as a user, I want to see a list of all the surfaces ('type' field in the runway file) available in any given country
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# About this AngularAirport "solution"
 
-## Build
+The code in this repository proposes to solve the problem using an Angular app using RxJS Observables for asynchronous treatment of the servers response.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- For the backend server (not in the repo) : 
+- - Converted the CSV Files into one big json data.json file using an online converter (https://www.csvjson.com/csv2json)
+- - Used the following package to generate a very simple API (that runs at http://localhost:3000) : typicode JSON Server (https://github.com/typicode/json-server)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- For the font end (code in this repo) :
+- - Angular6 / typescript app using RxJS Observable class and many operators (pipe, tap, map, switchmap, combineLatest, pairwise etc.) for the basic features
+- - Added the code for a simple memory caching experiment for heavy load computations such as the top 10 or the surfaces search. Code adapted from this experiment (https://github.com/ashwin-sureshkumar/angular-cache-service-blog)
+- - Added the core for a simple 'infinite scrolling' feature to display very long lists (the data has over 14k airports objects for country USA) asynchronously. Code adapted from the same experiment (https://github.com/ashwin-sureshkumar/angular-infinite-scroller)
