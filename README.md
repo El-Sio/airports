@@ -6,7 +6,7 @@ The exercice is as follows :
 
 Given 3 .csv Files (countries, airports, runway), create an app with the following features :
 
-1 -  as a user, I want to see a list all runways for any airport in any country.
+1 -  as a user, I want to see a list of all runways for any airport in any country.
 
 2 - as a user, I want to see a list of the 10 countries with the greatest number of airports, and the 10 countries with the least number of airports.
 
