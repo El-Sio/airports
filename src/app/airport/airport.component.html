@@ -10,7 +10,18 @@
       </a>
     </li>
   </ul>
+  </div>
 
-  <button (click)="goBack()">go back</button><button (click)="goTop()">Top</button>
+  <div>
+  <h3>Infinite scroll list of the {{totalAirportCount}} airports for {{(paysref$ | async).name }} ({{code}})</h3>
 
+  <ul class="heroes" id="infinite-scroller" appInfiniteScroller scrollPerecnt="70" [immediateCallback]="true" [scrollCallback]="scrollCallback">
+    <li *ngFor="let item of infinite_airports" >
+      <a routerLink="/piste/{{item.id}}">
+        <span class="badge">{{item.id}}</span> {{item.name}} ({{item.type}})
+      </a>
+    </li>
+  </ul>
 </div>
+
+  <button (click)="goBack()">go back</button> <button (click)="goTop()">Top</button>

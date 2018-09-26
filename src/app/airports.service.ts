@@ -60,6 +60,17 @@ export class AirportsService {
     );
   }
 
+  getFullAirportCount(code: string): Observable<number> {
+    return this.http.get<Airport[]>(`${this.airportUrl}/?iso_country=${code}&type_like=air&_limit=1`, { observe: 'response' })
+    .pipe(
+      map(
+        (val) => {
+          return parseInt(val.headers.get('X-Total-Count'), 10 );
+        }
+      )
+    );
+  }
+
   /** GET The full X-total-count of airports for one country
   getTotalAirportCount(pays: Pays): Observable<any> {
     this.getTopAirportsMAxFullResponse(pays.code).subscribe(resp => {
@@ -76,6 +87,15 @@ export class AirportsService {
     return this.http.get<Airport[]>(`${this.airportUrl}/?iso_country=${code}&type_like=air`).pipe(
       tap(_ => this.log(`fetched all Airports in country ${code}`)),
       catchError(this.handleError<Airport[]>('searchAirport', [])));
+
+  }
+
+
+  getInfAirports(page: number, code: string): Observable<Airport[]> {
+
+    return this.http.get<Airport[]>(`${this.airportUrl}/?iso_country=${code}&type_like=air&_page=${page}`).pipe(
+      tap(_ => this.log(`fetched page ${page} of Airports in country ${code}`)),
+      catchError(this.handleError<Airport[]>('getInfAirports', [])));
 
   }
 

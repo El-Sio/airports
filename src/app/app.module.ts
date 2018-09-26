@@ -14,6 +14,7 @@ import { PisteComponent } from './piste/piste.component';
 import { TopAirportsComponent } from './top-airports/top-airports.component';
 import { SurfacesComponent } from './surfaces/surfaces.component';
 import { PaysSearchSurfaceComponent } from './pays-search-surface/pays-search-surface.component';
+import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 
 import { CacheService } from './cache.service';
 
@@ -26,6 +27,7 @@ import { CacheService } from './cache.service';
     AirportComponent,
     PisteComponent,
     TopAirportsComponent,
+    InfiniteScrollerDirective,
     SurfacesComponent
   ],
   imports: [
